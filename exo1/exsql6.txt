@@ -1,0 +1,5 @@
+select * from personnage where year(datenaissance) >= 2002;
+select nom, year(datenaissance) from personnage;
+select nom, timestampdiff(year,datenaissance,curdate()) age from personnage;
+select avg(age) from (select nom, timestampdiff(year,datenaissance,curdate()) age from personnage) t1;
+select nom, timestampdiff(year,datenaissance,curdate()) as age from personnage having age > 15;

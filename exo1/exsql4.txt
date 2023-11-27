@@ -1,0 +1,5 @@
+select * from arme where degat > (select avg(degat) from arme);
+select * from personnage where level < (select avg(level) from personnage);
+select * from personnage where level > (select avg(level) from personnage inner join classe using (idclasse) where classe.nom = "Archer");
+
+select max(valeur) from (select count(idtypearme) as valeur from typearme inner join arme using (idtypearme) where estdistance = true group by idtypearme) as countdistance;

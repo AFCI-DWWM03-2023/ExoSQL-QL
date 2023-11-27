@@ -1,0 +1,31 @@
+1)
+create table attaque (idattaque int not null auto_increment, nom varchar(60));
+alter table attaque add column baseDegat int, add test tinyint;
+alter table attaque modify test varchar(50);
+alter table attaque change column test toto int;
+alter table attaque drop column toto;
+create table utilise(idattaque int, idpersonnage int, levelattaque int);
+
+2)
+insert into attaque (idattaque, nom, basedegat) values
+    -> (1, "attaque1", 5),
+    -> (2, "attaque2", 10),
+    -> (3, "attaque3", 15),
+    -> (4, "attaque4", 20);
+insert into utilise (idattaque, idpersonnage, levelattaque) values
+    -> (1, 1, 2),
+    -> (2, 1, 2),
+    -> (2, 2, 1),
+    -> (4, 3, 2),
+    -> (1, 4, 3),
+    -> (4, 5, 3);
+update attaque set basedegat = 10;
+update attaque set basedegat = 50 where idattaque in (2,3);
+alter table personnage add column dateNaissance date;
+update personnage set datenaissance = "2001-01-01" where idpersonnage = 1;
+update personnage set datenaissance = "2001-02-01" where idpersonnage = 2;
+update personnage set datenaissance = "2002-03-01" where idpersonnage = 3;
+update personnage set datenaissance = "2003-06-01" where idpersonnage = 4;
+update personnage set datenaissance = "2001-04-01" where idpersonnage = 5;
+update personnage set datenaissance = "2007-02-01" where idpersonnage = 6;
+update personnage set datenaissance = "2003-05-01" where idpersonnage = 7;

@@ -1,0 +1,12 @@
+1)
+select libelle as "Type d'arme", count(idarme) as "Nb d'arme" from typearme left join arme using (idtypearme) group by libelle;
+select classe.nom as "Classe", description, count(*) as "Nb Personnage" from personnage inner join classe using (idclasse) group by idclasse;
+select personnage.nom, count(*) from dispose inner join personnage using (idpersonnage) group by idpersonnage;
+select classe.nom, personnage.nom, count(*) from dispose inner join personnage using (idpersonnage) inner join classe using (idclasse) where classe.nom = "Guerrier" group by idpersonnage;
+select nom, count(idpersonnage) from dispose right join arme using (idarme) group by nom;
+select classe.nom, avg(level) from classe inner join personnage using (idclasse) group by classe.nom;
+
+2)
+select classe.nom, avg(level) from classe inner join personnage using (idclasse) group by classe.nom having avg(level) >= 9;
+select nom, count(idpersonnage) from dispose right join arme using (idarme) group by nom having count(idpersonnage) between 1 and 2;
+select libelle as "Type d'arme", count(idarme) as "Nb d'arme" from typearme left join arme using (idtypearme) where estdistance = 0 group by libelle having count(idarme) <= 1;
